@@ -4,6 +4,7 @@ variable "record_ttl" {
   default = "3600"
 }
 
+variable "g_suite_site_verification_cname" {}
 variable "g_suite_site_verification_key" {}
 variable "g_suite_mx_verification_key" {}
 variable "g_suite_mail_dkim" {

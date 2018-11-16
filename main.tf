@@ -5,8 +5,8 @@ data "aws_route53_zone" "zone" {
 resource "aws_route53_record" "g_suite_verification" {
 
   zone_id = "${data.aws_route53_zone.zone.id}"
-  name = ""
-  type = "TXT"
+  name = "${var.g_suite_site_verification_cname}"
+  type = "CNAME"
   ttl  = "${var.record_ttl}"
 
   records = ["${var.g_suite_site_verification_key}"]
