@@ -4,8 +4,8 @@ data "aws_route53_zone" "zone" {
 
 resource "aws_route53_record" "g_suite_verification" {
   zone_id = "${data.aws_route53_zone.zone.id}"
-  name    = "${var.g_suite_site_verification_cname}"
-  type    = "CNAME"
+  name    = ""
+  type    = "TXT"
   ttl     = "${var.record_ttl}"
 
   records = ["${var.g_suite_site_verification_key}"]
@@ -13,7 +13,7 @@ resource "aws_route53_record" "g_suite_verification" {
 
 resource "aws_route53_record" "g_suite_spf" {
   name    = ""
-  type    = "TXT"
+  type    = "SPF"
   zone_id = "${data.aws_route53_zone.zone.id}"
   ttl     = "${var.record_ttl}"
 
